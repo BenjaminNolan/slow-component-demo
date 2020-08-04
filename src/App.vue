@@ -2,9 +2,11 @@
   <div id="app">
     <h1>Demo of slow component re-evaluation when using lots of optional classes</h1>
     <p>
-      Click something to select it. When the path changes, every loaded component
-      re-evaluates its class list due to <code>get isSelected()</code> watching the
-      value from the store.
+      Click something to select it.
+    </p>
+    <p>
+      When the path changes, every loaded component re-evaluates its class list due
+      to <code>get isSelected()</code> watching the value from the store.
     </p>
     <p>
       We have a scenario where our app can have hundreds of these listeners per
@@ -14,6 +16,13 @@
     <p>
       Does anyone know how these need to be changed so that only the relevant
       components are re-evaluated?
+    </p>
+    <p>
+      Please note, this example is a bit contrived, since I wanted to simplify it as
+      much as possible, however imagine that there are at least 10 things which relate
+      to <code>this.selectedPath</code> on each component, and reduce the number of
+      actual components by an order of magnitude, and you've got more of an idea of
+      what the actual app is like.
     </p>
     <div class="items-container">
       <nested-item
